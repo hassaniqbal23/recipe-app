@@ -1,6 +1,7 @@
 let input = document.querySelector('.input');
 let searchBtn = document.querySelector('.searchbtn');
 let searchResult = document.querySelector('.search_result');
+let crossIcon = document.querySelector('.fa-circle-xmark');
 
 async function fetchRecipe(query) {
 	let response = await fetch(
@@ -31,6 +32,11 @@ async function fetchRecipe(query) {
 		searchResult.appendChild(message);
 	}
 }
+
+crossIcon.addEventListener('click', () => {
+	// Clear the input field text
+	input.value = '';
+});
 
 searchBtn.addEventListener('click', (e) => {
 	e.preventDefault();
